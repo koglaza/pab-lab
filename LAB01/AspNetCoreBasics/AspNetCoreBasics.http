@@ -1,0 +1,17 @@
+﻿@BackendApp2_HostAddress = http://localhost:5266
+
+PUT {{BackendApp2_HostAddress}}/people/konrad
+
+###
+
+GET {{BackendApp2_HostAddress}}/
+
+###
+
+PATCH {{BackendApp2_HostAddress}}/
+
+###
+
+DELETE {{BackendApp2_HostAddress}}/
+
+###
