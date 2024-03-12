@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package progress;
+
+service Progressor {
+  rpc RunHistory (google.protobuf.Empty) returns (stream HistoryResponse);
+}
+
+message HistoryResponse {
+  oneof ResponseType {
+    int32 progress = 1;
+    HistoryResult result = 2;
+  }
+}
+
+message HistoryResult {
+  repeated string items = 1;
+}
