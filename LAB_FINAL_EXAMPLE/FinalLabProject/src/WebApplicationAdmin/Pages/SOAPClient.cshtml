@@ -1,0 +1,14 @@
+﻿@page
+@model SOAPClientModel
+@{
+    ViewData["Title"] = "SOAP Client";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Tutaj powinien znaleźć się interfejs użytkownika, pozwalający na uruchomienie usługi SOAP.</p>
+
+<br />
+<br />
+<form method="post"><button class="btn btn-default">Kliknij aby uruchomić przykład</button></form>
+
+@Model.SoapResult 

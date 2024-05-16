@@ -36,6 +36,7 @@
     <PackageVersion Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageVersion Include="Respawn" Version="6.1.0" />
     <PackageVersion Include="RestSharp" Version="110.2.0" />
+    <PackageVersion Include="SoapCore" Version="1.1.0.49" />
     <PackageVersion Include="Testcontainers.MsSql" Version="3.6.0" />
   </ItemGroup>
 </Project>

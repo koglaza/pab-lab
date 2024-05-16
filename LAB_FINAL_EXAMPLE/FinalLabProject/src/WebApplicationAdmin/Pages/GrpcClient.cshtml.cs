@@ -14,5 +14,11 @@ public class GrpcClientModel : PageModel
     public void OnGet()
     {
     }
+
+    public IActionResult OnPost()
+    {
+        // implementacja klienta gRPC
+        return Page();
+    }
 }
 

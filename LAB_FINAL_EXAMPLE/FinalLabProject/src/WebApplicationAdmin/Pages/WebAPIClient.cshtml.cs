@@ -1,10 +1,10 @@
+﻿using FinalLabProject.Application.TodoLists.Queries.GetTodos;
 using FinalLabProject.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
 using WebApplicationAdmin.Config;
@@ -18,7 +18,8 @@ namespace WebApplicationAdmin.Pages
         private readonly IOptions<WebAPIConfig> _webAPIconfig;
         private readonly string TodoListUrl = "TodoLists";
         private readonly string UsersUrl = "Users";
-        private string? _token {  get; set; } 
+        private string? _token { get; set; }
+        public string? ResultMessage = string.Empty;
 
         public WebAPIClientModel(ILogger<GrpcClientModel> logger, IOptions<WebAPIConfig> webAPIconfig)
         {
@@ -39,7 +40,7 @@ namespace WebApplicationAdmin.Pages
             var client1 = new RestClient($"https://{this._webAPIconfig.Value.Host}:{this._webAPIconfig.Value.Port}");
             var request1 = new RestRequest($"api/{this.UsersUrl}/register", Method.Post);
             request1.AddHeader("content-type", "application/json");
-            request1.AddJsonBody(new  {email = "test@wsei.edu.pl", password = "StrongPass123$%^" });
+            request1.AddJsonBody(new { email = "test@wsei.edu.pl", password = "StrongPass123$%^" });
             var response1 = client1.Execute(request1);
 
             var client2 = new RestClient($"https://{this._webAPIconfig.Value.Host}:{this._webAPIconfig.Value.Port}");
@@ -58,21 +59,28 @@ namespace WebApplicationAdmin.Pages
 
                 };
                 var client3 = new RestClient(options);
-                var request3 = new RestRequest($"api/{this.TodoListUrl}/", Method.Get);
+                var request3 = new RestRequest($"api/{this.TodoListUrl}", Method.Get);
                 request3.AddHeader("content-type", "application/json");
-                var response3 = client3.Execute<List<TodoList>>(request3);
+                var response3 = client3.Execute<TodosVm>(request3);
 
                 if (response3.IsSuccessful)
                 {
-                    var queryResult = response3.Data;
-                    return new RedirectToPageResult("TodoLists", queryResult);
+                    this.ResultMessage = "Pomyślnie pobrano dane z API";
                 }
                 else if (response3 != null && response3.ErrorMessage != null)
-                    return BadRequest(response3.ErrorMessage.ToString());
+                {
+                    this.ResultMessage = response3.ErrorMessage;
+                }
                 else
-                    return StatusCode(500);
+                {
+                    this.ResultMessage = "Nieoczekiwany błąd";
+                }
             }
-            return Unauthorized();
+            else
+            {
+                this.ResultMessage = "Błąd autoryzacji";
+            }
+            return Page();
         }
     }
 }

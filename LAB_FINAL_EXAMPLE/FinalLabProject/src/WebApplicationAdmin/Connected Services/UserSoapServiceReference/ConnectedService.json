@@ -1,0 +1,26 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "https://localhost:7045/UserService.asmx"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, UserSoapServiceReference"
+    ],
+    "references": [
+      "C:\\WSEI\\LAB_FINAL_EXAMPLE\\FinalLabProject\\src\\WebApplicationAdmin\\bin\\Debug\\net8.0\\FinalLabProject.Domain.dll",
+      "MediatR, {MediatR, 12.2.0}",
+      "MediatR.Contracts, {MediatR.Contracts, 2.0.1}",
+      "Microsoft.Extensions.DependencyInjection.Abstractions, {Microsoft.Extensions.DependencyInjection.Abstractions, 8.0.0}",
+      "Newtonsoft.Json, {Newtonsoft.Json, 13.0.3}",
+      "RestSharp, {RestSharp, 110.2.0}",
+      "System.Text.Encodings.Web, {System.Text.Encodings.Web, 7.0.0}",
+      "System.Text.Json, {System.Text.Json, 7.0.2}"
+    ],
+    "targetFramework": "net8.0",
+    "typeReuseMode": "All"
+  }
+}
