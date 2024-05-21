@@ -1,0 +1,18 @@
+﻿@page
+@model EnvironmentModel
+@{
+    ViewData["Title"] = "Environment info";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>@Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")</h2>
+
+<environment include="Development">
+    <div>Environment is Development, you can change whatever you like</div>
+</environment>
+<environment exclude="Development">
+    <div>Environment is NOT Development! Do not change any data!</div>
+</environment>
+<environment include="Production">
+    <div>BE CAREFUL! THIS IS PRODUCTION ENVIORONMENT!</div>
+</environment>

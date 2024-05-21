@@ -1,0 +1,19 @@
+﻿@page
+@model Web.Pages.AddMessageModel
+@{
+    ViewData["Title"] = "Add Message";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <dl class="row">
+        <form method="post">
+            <input asp-for="Message" />
+            <button type="submit" class="btn btn-outline-info">Wyślij</button>
+        </form>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index">Back to Homepage</a>
+</div>
