@@ -1,0 +1,17 @@
+﻿@page
+@model DbInfoModel
+
+@{
+    ViewData["Title"] = "Database Info";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2>@Model.EnvironmentInfoModel.Value</h2>
+
+<div>
+    <dl class="row">
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index">Back to Homepage</a>
+</div>
