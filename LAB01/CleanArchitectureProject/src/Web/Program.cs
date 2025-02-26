@@ -3,11 +3,10 @@ using CleanArchitectureProject.Infrastructure.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
-
-builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
-builder.Services.AddWebServices();
+builder.AddKeyVaultIfConfigured();
+builder.AddApplicationServices();
+builder.AddInfrastructureServices();
+builder.AddWebServices();
 
 var app = builder.Build();
 
@@ -32,13 +31,6 @@ app.UseSwaggerUi(settings =>
     settings.DocumentPath = "/api/specification.json";
 });
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-
-app.MapRazorPages();
-
-app.MapFallbackToFile("index.html");
 
 app.UseExceptionHandler(options => { });
 
