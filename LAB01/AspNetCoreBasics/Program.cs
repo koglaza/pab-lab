@@ -3,28 +3,28 @@ using System.Text;
 
 #region Empty_Project
 
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-app.MapGet("/", () => "Hello Dev!");
-app.Run();
+//var builder = WebApplication.CreateBuilder(args);
+//var app = builder.Build();
+//app.MapGet("/", () => "Hello Dev!");
+//app.Run();
 
 #endregion
 
 #region Exercise_Host
-/*
-var builder = WebApplication.CreateBuilder(new WebApplicationOptions
-{
-    EnvironmentName = Environments.Production
-});
 
-var app = builder.Build();
-if(app.Environment.IsDevelopment())
-    app.MapGet("/", () => "Hello Dev!");
-else
-    app.MapGet("/", () => "Hello Production!");
+//var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+//{
+//    EnvironmentName = Environments.Development
+//});
 
-app.Run();
-*/
+//var app = builder.Build();
+//if(app.Environment.IsDevelopment())
+//    app.MapGet("/", () => "Hello Dev!");
+//else
+//    app.MapGet("/", () => "Hello Production!");
+
+//app.Run();
+
 #endregion
 
 #region Exercise_Routing
@@ -42,7 +42,7 @@ app.Run();
 #endregion
 
 #region Exercise_Middleware_1
-/*
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
@@ -56,7 +56,7 @@ app.Use(async (context, next) =>
 app.MapGet("/", () => "Exercise middleware");
 
 app.Run();
-*/
+
 #endregion
 
 #region Exercise_Middleware_2
